@@ -43,7 +43,7 @@ def solve(data):
     depstring = "\n".join(sorted(deplist))
 
     proc = subprocess.run(
-        ["uv", "pip", "compile", "-", "--no-index", "--find-links", "packages/dist/", "-q", "--no-header", "--no-annotate"],
+        ["uv", "pip", "compile", "-", "--no-index", "--find-links", "wheels/", "-q", "--no-header", "--no-annotate"],
         input=depstring,
         text=True,
         capture_output=True
