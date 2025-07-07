@@ -10,7 +10,7 @@ os.makedirs('packages', exist_ok=True)
 shutil.rmtree('wheels', ignore_errors=True)
 os.makedirs('wheels', exist_ok=True)
 
-def generate_package(row, col, digit):
+def generate_package(row: int, col: int, digit: int) -> None:
     deplist = set()
     for x in range(0,9):
         if x != row:

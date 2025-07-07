@@ -2,13 +2,13 @@ import sys
 import subprocess
 from util import boxes, intToBox, BASE_NAME
 
-def printBoard(data):
+def printBoard(data: str) -> None:
     for i in range(0,9):
         for j in range(0,9):
             print(data[i*9+j], end=' ')
         print()
 
-def solve(data):
+def solve(data: str) -> str:
     deplist = set()
     i, j = 0, 0
     for digit in data:
