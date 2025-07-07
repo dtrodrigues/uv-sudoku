@@ -28,7 +28,6 @@ def generate_package(row: int, col: int, digit: int) -> None:
 [project]
 name = "{BASE_NAME}_{row+1}{col+1}"
 version = "{digit}"
-requires-python = ">=3.13"
 dependencies = [{", ".join(deplist)}]
 
 [build-system]
