@@ -1,5 +1,6 @@
 import os
 import shutil
+import subprocess
 
 from util import boxes, intToBox, BASE_NAME
 
@@ -42,5 +43,4 @@ build-backend = "uv_build"
             with open(f"src/{BASE_NAME}_{row+1}{col+1}/__init__.py", "w") as f:
                 pass
 
-
-            os.system(f"uv build --wheel")
+            subprocess.run(["uv", "build", "--wheel"])
