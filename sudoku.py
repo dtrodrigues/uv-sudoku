@@ -40,17 +40,15 @@ def solve(data):
             j = 0
             i += 1
 
-    depstring = "\n".join(sorted(deplist))
-
     proc = subprocess.run(
         ["uv", "pip", "compile", "-", "--no-index", "--find-links", "wheels/", "-q", "--no-header", "--no-annotate"],
-        input=depstring,
+        input="\n".join(deplist),
         text=True,
         capture_output=True
     )
 
-    # Extract the last character from each line and join them into a string
-    return ''.join(line[-1] for line in proc.stdout.splitlines())
+    # sort the output requirements and then return the joined last characters (version numbers) of each line
+    return ''.join(line[-1] for line in sorted(proc.stdout.splitlines()))
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
